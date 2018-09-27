@@ -1,0 +1,21 @@
+#create docker containers to inspect
+docker container run -d \
+--name proxy \
+-p 80:80 \
+nginx
+
+docker container run -d -p 3306:3306 --name mysql \
+-e MYSQL_RANDOM_ROOT_PASSWORD=yes \
+mysql \
+
+#grab the mysql root password
+docker logs db 2>/dev/null | grep "GENERATED ROOT PASSWORD"
+
+#top command returns a process list in one container
+docker container top mysql
+
+# inspect command returns an array of json about how the container was created
+docker container inspect mysql
+
+#stats command returns iformation about the running containers
+docker container stats

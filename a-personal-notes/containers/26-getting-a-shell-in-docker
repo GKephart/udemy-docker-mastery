@@ -1,0 +1,44 @@
+# starts a new container interactively (i.e shell access)
+docker container run -it
+
+# runs additional commands in an existing container
+docker container exec -it
+
+# -t = pseudo-tty: simulates an ssh terminal
+# -i = interactive keeps the session open to receive terminal input
+
+# runs a nginx container with an interactive bash shell
+#bash is the command that ran the container. Once bash stops the container stops
+docker container run -it --name proxy nginx bash
+
+#runs an ubuntu (yuck) container and starts an interactive shell
+docker container run -it --name ubuntu ubuntu
+
+#with shell access it is possible to run apt-get
+> root@bb0ff8406ae0:/# apt-get update
+
+#restart the ubuntu server
+ docker container start --attach --interactive ubuntu
+
+# or
+docker container start -ai ubuntu.
+
+# access a bash shell from an already running container
+docker container exec -it mysql bash
+
+#pull down a new Alpine image
+docker pull alpine
+
+#list all the different docker images
+docker image ls
+
+# run an alpine docker container and have its default shell come up.
+docker container run -it alpine
+
+# start a new container interactively
+docker container run -it foo
+
+# run an additional command in an existing existing container
+docker container start -ai existing-container.
+
+# unix package management https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg
