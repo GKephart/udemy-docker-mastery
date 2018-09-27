@@ -8,6 +8,7 @@ docker container port nginx
 
 #grab the docker ip of the container
 #  * --format option to format output of commands using go templates (kinda like grep)
+#    * documentation for --format https://docs.docker.com/config/formatting/
 #    * '{{.Network-Settings.IPAddress }}' json indexs for json configuration files
 docker container inspect --format '{{.Network-Settings.IPAddress }}' nginx
 
