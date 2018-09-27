@@ -1,0 +1,21 @@
+#show networks
+#  * --network-bridge TLDR Default Docker virtual network which is NAT'ed behing the host ip
+#
+docker network ls
+
+# inspect a network
+docker network inspect
+
+# create a network
+docker network create --driver
+
+# attach a network to a container
+#  * --driver TLDR I have no idea
+docker network connect --driver
+
+#detach a network from container
+docker network disconnect
+
+# used to find what containers are attached the bridge network
+docker network inspect bridge
+# output (compressed json) [{"Name":"bridge","Id":"0f94a994c49025af3282b11a9e22be299c0485633a76f37abe02a3d8371fcb50","Created":"2018-09-25T22:59:22.126514816Z","Scope":"local","Driver":"bridge","EnableIPv6":false,"IPAM":{"Driver":"default","Options":null,"Config":[{"Subnet":"172.17.0.0/16","Gateway":"172.17.0.1"}]},"Internal":false,"Attachable":false,"Ingress":false,"ConfigFrom":{"Network":""},"ConfigOnly":false,"Containers":{"1c419fca2faf51daaa054da363babea94c04e5876fd0fd2216abdf062b10e00f":{"Name":"db","EndpointID":"4b51292a2d9bdc62fc00660bd41ed14f59b1bbb04e8a45959b959fd7fcfbb72a","MacAddress":"02:42:ac:11:00:02","IPv4Address":"172.17.0.2/16","IPv6Address":""},"66e840c8f09574092ad800649d04e3991ebbaf4928e6ef3f7165f114c600c95c":{"Name":"webhost","EndpointID":"d430cfa447b3644fe0ab75c6f146f838135382688386f992a15a23ddd1176671","MacAddress":"02:42:ac:11:00:03","IPv4Address":"172.17.0.3/16","IPv6Address":""}},"Options":{"com.docker.network.bridge.default_bridge":"true","com.docker.network.bridge.enable_icc":"true","com.docker.network.bridge.enable_ip_masquerade":"true","com.docker.network.bridge.host_binding_ipv4":"0.0.0.0","com.docker.network.bridge.name":"docker0","com.docker.network.driver.mtu":"1500"},"Labels":{}}]
