@@ -1,0 +1,16 @@
+# command lesson is based on
+docker container run -p 80:80 --name nginx -d nginx
+# -p foo:bar foo is host bar is container
+# foo:bar foo host forwarding to  bar container
+
+docker container port nginx
+# output 0.0.0.0:80
+
+#grab the docker ip of the container
+#  * --format option to format output of commands using go templates (kinda like grep)
+#    * '{{.Network-Settings.IPAddress }}' json indexs for json configuration files
+docker container inspect --format '{{.Network-Settings.IPAddress }}' nginx
+
+#dockers moto  "comes with batteries but replacable" TLDR presets work well but you can easily customize.
+
+# when it comes networking multiple containers remember the DDCB Full stacks concept of the Great wall of China
