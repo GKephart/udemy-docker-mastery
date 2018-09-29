@@ -1,0 +1,6 @@
+# Key points
+#   * understand how DNS is the key to easy inter-container comms
+#   * DNS is key TLDR IPS in Docker is to Dynamic.
+#   * --link to enable DNS on default bridge network
+#   * Docker has a built in DNS server and docker container name is the key.
+#      *TLDR container names equal host name.

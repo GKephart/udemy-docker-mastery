@@ -1,0 +1,31 @@
+# spin up the ubuntu docker instance
+docker container run -it --name ubuntu ubuntu:18.04 bash
+
+# test the curl version and see if you need to download a new version
+curl -v
+
+# if that fails install curl and then -v
+apt-get-install curl
+curl -v
+
+
+# spin up a a cent os docker container
+docker container run -it --name centos centos:7 bash
+
+# install curl
+yum install curl
+
+#######
+
+#answer
+docker container run --rm -it ubuntu:18.04 bash
+
+apt-get update && -y apt-get install curl
+
+curl --version
+
+docker container run --rm -it centos:7 bash
+
+yum update curl
+
+curl --version
