@@ -1,5 +1,6 @@
 #
 # 1. create a new virtual networks
+docker network create red-rover 
 # 2. create two new images called elastic search
 # 3. research ande usr --net-alias search when creating them to give them an additional DNS name to respond to
 # 4. run alpine nslookup search with --net to see the two containers listed.

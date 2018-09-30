@@ -1,7 +1,16 @@
 #show networks
 #  * --network-bridge TLDR Default Docker virtual network which is NAT'ed behing the host ip
 #
+# default container for lesson
+docker container run -p 80:80 --name webhost -d nginx
+
+#port specfied container is runnig off of.
+docker container port webhost
+
+#ls for docker networks duh
 docker network ls
+
+docker container inspect --format '{{ .NetworkSettings.IPv4Address}}' webhost
 
 # inspect a network
 docker network inspect
