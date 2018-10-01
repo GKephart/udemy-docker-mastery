@@ -1,7 +1,12 @@
 #
 # 1. create a new virtual networks
-docker network create red-rover 
+docker network create red-rover
 # 2. create two new images called elastic search
-# 3. research ande usr --net-alias search when creating them to give them an additional DNS name to respond to
-# 4. run alpine nslookup search with --net to see the two containers listed.
+docker container run  -d --name red --network red-rover  --net-alias red-rover elasticsearch:2 && docker container run  -d  --name rover --network red-rover --net-alias red-rover elasticsearch:2
+
+# 3. run alpine nslookup search with --net to see the two containers listed.
+docker container run -it --name sendFooBar --network red-rover alpine nslookup red-rover
+
 # 5. run centos curl -s search:9200 with --net multiple times.
+docker container run -it --name sendFooBarOver --network red-rover centos:7 curl -s red-rover:9200
+docker container start -ai sendFooBarOver
