@@ -10,3 +10,8 @@ docker container run -it --name sendFooBar --network red-rover alpine nslookup r
 # 5. run centos curl -s search:9200 with --net multiple times.
 docker container run -it --name sendFooBarOver --network red-rover centos:7 curl -s red-rover:9200
 docker container start -ai sendFooBarOver
+
+# answer key:
+# --rm to get rid of containers right after the command was ran TLDR keep commands dry.
+# some containers have exposed ports in the inside network.
+# Only use --publish|-p when exposing ports to the outside network.
