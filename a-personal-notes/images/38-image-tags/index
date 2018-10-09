@@ -1,0 +1,16 @@
+#Covered topics
+# all about images
+# how to upload to Docker Hub
+# Image Id vs Image tag
+
+# base-command
+docker image tag
+
+# tags in docker are like tags in github they are a refernce to a specfic hash/image id.
+# how to create custom tags: base-command [image?:tag] [tag]
+docker image tag nginx gkephart/nginx
+
+# how to push images to a repo (dockerhub)
+docker image push
+
+# If you change tag and push image that image becomes yours (TLDR same as git forking)

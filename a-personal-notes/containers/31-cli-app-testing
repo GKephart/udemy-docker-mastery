@@ -21,7 +21,6 @@ yum install curl
 docker container run --rm -it ubuntu:18.04 bash
 
 apt-get update && -y apt-get install curl
-
 curl --version
 
 docker container run --rm -it centos:7 bash
