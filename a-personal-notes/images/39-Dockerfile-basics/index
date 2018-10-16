@@ -1,0 +1,6 @@
+# Sections in a docker file
+# FROM: base of the minimal operating system. TLDR alpine debian:jesse
+# ENV - environmental variable: prefered way to inject keys/values/arguements because they work everywhere.
+# RUN - runs commands /shell scripts in the container. Can have multiple RUN commands execution goes top down.
+# EXPOSE: makes ports availble on the docker virtual network. By default no ports are exposed.
+# CMD final command that is run when the container runs.
