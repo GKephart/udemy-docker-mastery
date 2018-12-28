@@ -1,0 +1,8 @@
+# cannot use bind mounts in docker files
+# example
+docker container run -v /Users/Gkephart/junk:path/container
+
+# Demo
+# use $(pwd) instead of typing the path
+docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx
+# TLDR Bind-mounts allow you to use current directory structure on the host to affect the file system inside the container while the container is still running

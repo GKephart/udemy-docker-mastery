@@ -1,0 +1,18 @@
+# create the named volume
+docker volume create psql-data
+
+# create the the fist postgres container TLDR I am going to use the image id instead of the image:tag
+docker container run -d --name fluffy-bunny-never-dies -v psql-data:/var/lib/postgres/data 4023a
+# postgres created two volumes I think this has to do witht the fact that I created the volume before running the command.
+# I am going to try again but this time not create the image first
+# discovered my mistake I was not specifying the correct destination
+docker container run -d --name fluffy-bunny-never-dies -v psql-data:/var/lib/postgresql/data 4023a
+
+# command used to verify custom volume mount was successful
+docker container inspect --format='{{json .Mounts}}' fluffy-bunny-never-dies | python -m json.tool
+
+# Delete the first container so second one can be created
+docker container rm -f fluffy-bunny-never-dies
+
+# Start the new patch version of postgres
+docker container run -d --name fluffy-bunny-never-dies -v psql-data:/var/lib/postgresql/data postgres:9.6.2
